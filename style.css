@@ -51,7 +51,7 @@ h1 {
   mix-blend-mode: difference;
 }
 
-img {
+.scrollable img {
   position: absolute;
   height: 60%;
   visibility: hidden;
