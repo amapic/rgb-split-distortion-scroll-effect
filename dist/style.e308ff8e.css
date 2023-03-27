@@ -41,21 +41,46 @@ main {
   align-items: center;
   justify-content: center;
 }
+
 h1 {
   position: absolute;
-  left: 0;
-  top: 60%;
-  left: 55%;
   z-index: 10;
   color: #ffffff;
   mix-blend-mode: difference;
 }
+
+.img_un{
+  left: 0;
+  top: 60%;
+  left: 55%;
+}
+
+.img_deux{
+  left: 0;
+  top: 60%;
+  left: 15%;
+}
+
+.img_trois{
+  /* left: 0; */
+  top: 40%;
+  left: 55%;
+  color:grey;
+}
+
+
 
 .scrollable img {
   position: absolute;
   height: 60%;
   visibility: hidden;
 }
+
+/* .scrollable a {
+  position: absolute;
+  height: 60%;
+  visibility: hidden;
+} */
 
 canvas {
   position: fixed;
