@@ -36432,7 +36432,7 @@ var EffectCanvas = /*#__PURE__*/function () {
       this.images.forEach(function (image) {
         var meshItem = new MeshItem(image, _this.scene);
         _this.meshItems.push(meshItem);
-        console.log("rr");
+        // console.log("rr");
       });
     }
 
@@ -36543,7 +36543,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44441" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38469" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

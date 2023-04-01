@@ -87,7 +87,7 @@ class EffectCanvas {
     this.images.forEach((image) => {
       let meshItem = new MeshItem(image, this.scene);
       this.meshItems.push(meshItem);
-      console.log("rr");
+      // console.log("rr");
     });
   }
 
