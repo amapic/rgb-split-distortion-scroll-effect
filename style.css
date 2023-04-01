@@ -77,9 +77,10 @@ h1 {
 }
 
 .scrollable img {
-  max-width: 80vw;
+  max-width: 70vw;
   min-height: 40vh;
   object-fit: cover;
+  object-position: 0 0;
 }
 
 /* .scrollable a {
