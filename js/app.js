@@ -30,6 +30,7 @@ class EffectCanvas {
   constructor() {
     this.container = document.querySelector("main");
     this.images = [...document.querySelectorAll(".img_rgb_effect")];
+    console.log(this.images)
     this.meshItems = []; // Used to store all meshes we will be creating.
     this.setupCamera();
     this.createMeshItems();
@@ -137,6 +138,10 @@ class MeshItem {
         //opacity
         value: 1,
       },
+      // vUv: {
+      //   //opacity
+      //   value: 0.1,
+      // },
     };
     this.material = new THREE.ShaderMaterial({
       uniforms: this.uniforms,

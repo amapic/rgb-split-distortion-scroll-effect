@@ -15,8 +15,11 @@
 
 vec3 rgbShift(sampler2D textureImage, vec2 uv, vec2 offset) {
    float r = texture2D(textureImage,uv + offset).r;
+  //  float g = texture2D(textureImage,uv + offset).g;
+  //  float b = texture2D(textureImage,uv + offset).b;
    vec2 gb = texture2D(textureImage,uv).gb;
    return vec3(r,gb);
+  //  return vec3(r,g,b);
  }
 
 void main() {

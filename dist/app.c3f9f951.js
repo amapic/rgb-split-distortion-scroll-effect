@@ -36323,7 +36323,7 @@ if (typeof window !== 'undefined') {
 },{}],"js/shaders/vertexShader.glsl":[function(require,module,exports) {
 module.exports = "#define GLSLIFY 1\n// uniform sampler2D uTexture;\n// uniform vec2 uOffset;\n// varying vec2 vUv;\n\n// float M_PI = 3.141529;\n\n// void main(){\n//     vUv = uv;\n//     vec3 newPosition = position;\n\n//     gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n// }\n\nuniform sampler2D uTexture;\nuniform vec2 uOffset;\nvarying vec2 vUv;\n\n#define M_PI 3.1415926535897932384626433832795\n\nvec3 deformationCurve(vec3 position, vec2 uv, vec2 offset) {\n   position.x = position.x + (sin(uv.y * M_PI) * offset.x);\n   position.y = position.y + (sin(uv.x * M_PI) * offset.y);\n   return position;\n}\n\nvoid main() {\n   vUv = uv;\n   vec3 newPosition = deformationCurve(position, uv, uOffset);\n   gl_Position = projectionMatrix * modelViewMatrix * vec4( newPosition, 1.0 );\n}";
 },{}],"js/shaders/fragmentShader.glsl":[function(require,module,exports) {
-module.exports = "#define GLSLIFY 1\n// uniform sampler2D uTexture;\n// uniform float uAlpha;\n// uniform vec2 uOffset;\n// varying vec2 vUv;\n\n// void main(){\n//     gl_FragColor = vec4(255.,255.,255.,255.);\n// }\n\n uniform sampler2D uTexture;\n uniform float uAlpha;\n uniform vec2 uOffset;\n varying vec2 vUv;\n\nvec3 rgbShift(sampler2D textureImage, vec2 uv, vec2 offset) {\n   float r = texture2D(textureImage,uv + offset).r;\n   vec2 gb = texture2D(textureImage,uv).gb;\n   return vec3(r,gb);\n }\n\nvoid main() {\n   vec3 color = rgbShift(uTexture,vUv,uOffset);\n   gl_FragColor = vec4(color,uAlpha);\n }";
+module.exports = "#define GLSLIFY 1\n// uniform sampler2D uTexture;\n// uniform float uAlpha;\n// uniform vec2 uOffset;\n// varying vec2 vUv;\n\n// void main(){\n//     gl_FragColor = vec4(255.,255.,255.,255.);\n// }\n\n uniform sampler2D uTexture;\n uniform float uAlpha;\n uniform vec2 uOffset;\n varying vec2 vUv;\n\nvec3 rgbShift(sampler2D textureImage, vec2 uv, vec2 offset) {\n   float r = texture2D(textureImage,uv + offset).r;\n  //  float g = texture2D(textureImage,uv + offset).g;\n  //  float b = texture2D(textureImage,uv + offset).b;\n   vec2 gb = texture2D(textureImage,uv).gb;\n   return vec3(r,gb);\n  //  return vec3(r,g,b);\n }\n\nvoid main() {\n   vec3 color = rgbShift(uTexture,vUv,uOffset);\n   gl_FragColor = vec4(color,uAlpha);\n }";
 },{}],"js/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -36372,6 +36372,7 @@ var EffectCanvas = /*#__PURE__*/function () {
     _classCallCheck(this, EffectCanvas);
     this.container = document.querySelector("main");
     this.images = _toConsumableArray(document.querySelectorAll(".img_rgb_effect"));
+    console.log(this.images);
     this.meshItems = []; // Used to store all meshes we will be creating.
     this.setupCamera();
     this.createMeshItems();
@@ -36489,7 +36490,12 @@ var MeshItem = /*#__PURE__*/function () {
           //opacity
           value: 1
         }
+        // vUv: {
+        //   //opacity
+        //   value: 0.1,
+        // },
       };
+
       this.material = new THREE.ShaderMaterial({
         uniforms: this.uniforms,
         vertexShader: _vertexShader.default,
@@ -36543,7 +36549,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38153" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38469" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -14,7 +14,7 @@ body,
 html {
   overscroll-behavior: none;
   background-color: #000000;
-  height: 100vh;
+  height: 200vh;
   width: 100%;
 }
 
@@ -45,7 +45,7 @@ main {
 h1 {
   position: absolute;
   z-index: 10;
-  color: #ffffff;
+  color: #00f;
   mix-blend-mode: difference;
 }
 
