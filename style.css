@@ -18,6 +18,12 @@ html {
   width: 100%;
 }
 
+a,a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color:inherit;
+}
+
 main {
   position: fixed;
   width: 100%;
@@ -41,14 +47,26 @@ main {
   align-items: center;
   justify-content: center;
 }
-h1 {
+h1.text-blanc {
   position: absolute;
   left: 0;
   top: 60%;
   left: 55%;
   z-index: 10;
   color: #ffffff;
-  mix-blend-mode: difference;
+  text-decoration: none;
+  /* mix-blend-mode: difference; */
+}
+
+h1.text-gris {
+  position: absolute;
+  left: 0;
+  top: 60%;
+  left: 55%;
+  z-index: 10;
+  color: #333;
+  text-decoration: none;
+  /* mix-blend-mode: difference; */
 }
 
 img {
