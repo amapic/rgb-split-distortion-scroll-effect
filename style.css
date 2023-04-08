@@ -49,30 +49,30 @@ main {
 }
 h1.text-blanc {
   position: absolute;
-  left: 0;
-  top: 60%;
-  left: 55%;
   z-index: 10;
   color: #ffffff;
   text-decoration: none;
-  /* mix-blend-mode: difference; */
 }
 
 h1.text-gris {
   position: absolute;
-  left: 0;
-  top: 60%;
-  left: 55%;
   z-index: 10;
-  color: #333;
+  color: #999;
   text-decoration: none;
-  /* mix-blend-mode: difference; */
 }
 
 img {
   position: absolute;
-  height: 60%;
+  /* height: 60%; */
   visibility: hidden;
+}
+
+.scrollable img{
+  max-width: 70vw;
+  max-height: 60%;
+  /* min-height: 40vh; */
+  /* object-fit: cover; */
+  object-position: 50 50;
 }
 
 canvas {
@@ -81,3 +81,31 @@ canvas {
   top: 0;
   left: 0;
 }
+
+
+@media (min-width: 900px) {
+  h1{
+    top: 60%;
+    left: 55%;
+  }
+
+  .link{
+    position:fixed;
+    /* top: 11vh;
+        left: 0vh; */
+  }
+}
+
+@media (max-width: 900px) {
+  h1{
+  top: 70%;
+  left: 10vh;
+  /* margin:0 10vh; */
+  }
+
+  .link{
+    position:absolute;
+  }
+}
+
+
